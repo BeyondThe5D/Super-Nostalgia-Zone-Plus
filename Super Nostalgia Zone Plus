@@ -480,9 +480,9 @@ if game.PlaceId == 998374377 then
 			
 			while true do
 				settings().Rendering.EnableFRM = false
-			    local _tick = tick()
-			    RunService.RenderStepped:Wait()
-			    repeat until (_tick+1/30) <= tick()
+				local _tick = tick()
+				RunService.RenderStepped:Wait()
+				repeat until (_tick+1/30) <= tick()
 			end
 			]])
 		end
