@@ -2,7 +2,6 @@
 
 Credits:
 CloneTrooper1019 - Creating Super Nostalgia Zone (He didn't do any work on this script but made the game this script runs on)
-
 Beyond 5D - Writing all of the code
 
 Script goal:
