@@ -1,13 +1,5 @@
-   _____                          _   __           __        __      _          _____                       ____  __          
-  / ___/__  ______  ___  _____   / | / /___  _____/ /_____ _/ /___ _(_)___ _   /__  /  ____  ____  ___     / __ \/ /_  _______
-  \__ \/ / / / __ \/ _ \/ ___/  /  |/ / __ \/ ___/ __/ __ `/ / __ `/ / __ `/     / /  / __ \/ __ \/ _ \   / /_/ / / / / / ___/
- ___/ / /_/ / /_/ /  __/ /     / /|  / /_/ (__  ) /_/ /_/ / / /_/ / / /_/ /     / /__/ /_/ / / / /  __/  / ____/ / /_/ (__  ) 
-/____/\__,_/ .___/\___/_/     /_/ |_/\____/____/\__/\__,_/_/\__, /_/\__,_/     /____/\____/_/ /_/\___/  /_/   /_/\__,_/____/  
-          /_/                                              /____/                                                             
-
-Credits:
-CloneTrooper1019 - Creating Super Nostalgia Zone (He didn't do any work on this script but made the game this script runs on)
-Beyond 5D - Writing all of the code
+# Super Nostalgia Zone Plus
+Written by Beyond 5D
 
 Script goal:
 This script is not a malicious script and is actually the complete opposite, it aims to make CloneTrooper's "Super Nostalgia Zone" game as accurate as possible to the 2008 version of Roblox, I got most of the info from 2008 from old clients, Roblox Wikipedias and old YouTube videos. This script gives you no benefit in-game (Other then making the game look more 2008-like lol) and if CloneTrooper wants this script taken down I won't hesitate to do so.
