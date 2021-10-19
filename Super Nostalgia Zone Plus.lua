@@ -3,6 +3,8 @@ wait()
 if game.PlaceId == 998374377 then
 	local UpdateLog = [[
 	- Make lighting a little bit more accurate
+	- > Happy Home In Robloxia! changes:
+	- Rotated the baseplate to match 2008 version
 	]]
 
 	repeat game:GetService("RunService").RenderStepped:Wait() until game:IsLoaded()
@@ -483,6 +485,8 @@ if game.PlaceId == 998374377 then
 						NewWeaponPatch(_NewCharacter)
 					end)
 				end)
+			elseif game.PlaceId == 1034328244 then
+				workspace:WaitForChild("Base").Orientation = Vector3.new(0,180,0)
 			end
 			
 			while true do
