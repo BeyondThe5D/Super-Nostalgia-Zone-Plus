@@ -423,6 +423,14 @@ if game.PlaceId == 998374377 then
 				UpdateFullscreen(FullscreenClone)
 			end)
 			
+			local LegacyToneMap = Lighting:WaitForChild("LegacyToneMap")
+			local LegacyToneMapClone = LegacyToneMap:Clone()
+			LegacyToneMapClone.LegacyToneMap.Brightness = -0.02
+			LegacyToneMapClone.LegacyToneMap.Contrast = -0.2
+			LegacyToneMapClone.LegacyToneMap.Saturation = -0.1
+			LegacyToneMap:Destroy()
+			LegacyToneMapClone.Parent = Lighting
+			
 			if game.PlaceId == 1009092446 then
 				local function WeaponPatch(_Player)
 					if Player.Character then
