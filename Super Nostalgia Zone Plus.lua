@@ -2,8 +2,7 @@ wait()
 
 if game.PlaceId == 998374377 then
 	local UpdateLog = [[
-	- Fixed a vulnerability which lets SNZ developers detect this script being executed
-	- Fixed fullscreen message from flashing
+	- Make lighting a little bit more accurate
 	]]
 
 	repeat game:GetService("RunService").RenderStepped:Wait() until game:IsLoaded()
@@ -425,9 +424,9 @@ if game.PlaceId == 998374377 then
 			
 			local LegacyToneMap = Lighting:WaitForChild("LegacyToneMap")
 			local LegacyToneMapClone = LegacyToneMap:Clone()
-			LegacyToneMapClone.LegacyToneMap.Brightness = -0.02
-			LegacyToneMapClone.LegacyToneMap.Contrast = -0.2
-			LegacyToneMapClone.LegacyToneMap.Saturation = -0.1
+			LegacyToneMapClone.Brightness = -0.02
+			LegacyToneMapClone.Contrast = -0.2
+			LegacyToneMapClone.Saturation = -0.1
 			LegacyToneMap:Destroy()
 			LegacyToneMapClone.Parent = Lighting
 			
