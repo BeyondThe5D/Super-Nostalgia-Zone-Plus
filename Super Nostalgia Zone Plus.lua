@@ -2,9 +2,7 @@ wait()
 
 if game.PlaceId == 998374377 then
 	local UpdateLog = [[
-	- Make lighting a little bit more accurate
-	- > Happy Home In Robloxia! changes:
-	- Rotated the baseplate to match 2008 version
+	- Fixed size of zoom controls
 	]]
 
 	repeat game:GetService("RunService").RenderStepped:Wait() until game:IsLoaded()
