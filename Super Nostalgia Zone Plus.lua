@@ -321,14 +321,33 @@ if game.PlaceId == 998374377 then
 			end
 			
 			local UI = Player.PlayerGui:WaitForChild("UI")
-			local Topbar = UI.Topbar
+			local Topbar = UI:WaitForChild("Topbar")
+            local ZoomControls = UI:WaitForChild("ZoomControls")
+
 			Topbar.Position = UDim2.new(0,0,0,1)
 			Topbar.Size = UDim2.new(0,70,0,14)
+
 			for _,v in pairs(Topbar:GetChildren()) do
 				if v:IsA("TextButton") then
 					v.TextSize = 11
 				end
 			end
+
+            ZoomControls.AnchorPoint = Vector2.new(1,1)
+            ZoomControls.Position = UDim2.new(1,0,1,20)
+            ZoomControls.RotateUp.LayoutOrder = 1
+            ZoomControls.ZoomIn.LayoutOrder = 2
+            ZoomControls.ZoomIn.Position = UDim2.new(0,25,0,0)
+            ZoomControls.RotateDown.LayoutOrder = 3
+            ZoomControls.RotateDown.Position = UDim2.new(0,0,0,25)
+            ZoomControls.ZoomOut.LayoutOrder = 4
+            ZoomControls.ZoomOut.Position = UDim2.new(0,25,0,25)
+            for _,buttons in pairs(ZoomControls:GetChildren()) do
+                if buttons:IsA("ImageButton") then
+                    buttons.Size = UDim2.new(0,25,0,25)
+                end
+            end
+
 			UI.Chat.ChatOutput.Position = UDim2.new(0,30,0,45)
 			CoreGui:WaitForChild("ThemeProvider").Enabled = false
 			CoreGui:WaitForChild("RobloxGui"):Destroy()
