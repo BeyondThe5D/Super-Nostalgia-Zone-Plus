@@ -2,10 +2,12 @@ wait()
 
 if game.PlaceId == 998374377 then
 	local UpdateLog = [[
-	- Fixed size of zoom controls
+	- Minor optimisation (Thanks to my friend for poiting them out)
 	]]
 
-	repeat game:GetService("RunService").RenderStepped:Wait() until game:IsLoaded()
+	if game:IsLoaded() == false then
+		game.Loaded:Wait()
+	end
 
 	local Players = game:GetService("Players")
 	local ReplicatedStorage = game:GetService("ReplicatedStorage")
@@ -254,7 +256,9 @@ if game.PlaceId == 998374377 then
 	Player.OnTeleport:Connect(function(State)
 		if State == Enum.TeleportState.Started then
 			Universal_Queue_On_Teleport([[
-			repeat game:GetService("RunService").RenderStepped:Wait() until game:IsLoaded()
+			if game:IsLoaded() == false then
+				game.Loaded:Wait()
+			end
 			
 			local Players = game:GetService("Players")
 			local Lighting = game:GetService("Lighting")
