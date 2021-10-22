@@ -5,6 +5,7 @@ if game.PlaceId == 998374377 then
 	- Minor optimisation (Thanks to my friend for poiting them out)
 	- Fixed first person indicator size and position
 	- Made text outline thicker on team playerlist
+	- You can now stop whilst climbing
 	- > Happy Home In Robloxia! update:
 	- Fixed bug where you weren't able to build
 	]]
@@ -375,14 +376,37 @@ if game.PlaceId == 998374377 then
 			UI.Chat.ChatOutput.Position = UDim2.new(0,30,0,45)
 			CoreGui:WaitForChild("ThemeProvider").Enabled = false
 			CoreGui:WaitForChild("RobloxGui"):Destroy()
-			
+
+			local ClimbForceVelocity = Vector3.new(0,0,0)
+
 			Player.CharacterAdded:Connect(function(Character)
+				local Humanoid = Character:WaitForChild("Humanoid")
+				local HumanoidRootPart = Character:WaitForChild("HumanoidRootPart")
+				local ClimbForce = HumanoidRootPart:WaitForChild("ClimbForce")
 				local JumpLimiter = Character:WaitForChild("JumpLimiter")
+
+				local function UpdateVelocity()
+					ClimbForce.Velocity = ClimbForceVelocity
+				end
+
 				local JumpLimiterClone = JumpLimiter:Clone()
 				JumpLimiterClone.Parent = Character
 				JumpLimiter:Destroy()
+
+				Humanoid.Changed:Connect(function()
+					if Humanoid.MoveDirection == Vector3.new(0,0,0) then
+						ClimbForceVelocity = Vector3.new(0,0,0)
+					else
+						ClimbForceVelocity = Vector3.new(0,11.2,0)
+					end
+					UpdateVelocity()
+				end)
+
+				ClimbForce.Changed:Connect(function()
+					UpdateVelocity()
+				end)
 			end)
-			
+
 			UI.Chat.ChatOutput.ChildAdded:Connect(function(Object)
 			    if Object.PlayerName.Text == "Beyond_5D;  " then
 			        Object.Message.TextColor3 = Color3.fromRGB(239,184,56)
@@ -500,8 +524,8 @@ if game.PlaceId == 998374377 then
 				local function NewWeaponPatch(_Character)
 					_Character:WaitForChild("Torso").ChildAdded:Connect(function(Child)
 					    if Child:IsA("Sound") and Child.SoundId ~= "rbxasset://sounds//paintball.wav" then
-					       game:GetService("RunService").RenderStepped:Wait()
-					       Child:Destroy()
+							RunService.RenderStepped:Wait()
+					    	Child:Destroy()
 					    end
 					end)
 				end
