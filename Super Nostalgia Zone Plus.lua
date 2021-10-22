@@ -5,6 +5,8 @@ if game.PlaceId == 998374377 then
 	- Minor optimisation (Thanks to my friend for poiting them out)
 	- Fixed first person indicator size and position
 	- Made text outline thicker on team playerlist
+	- > Happy Home In Robloxia! update:
+	- Fixed bug where you weren't able to build
 	]]
 
 	if game:IsLoaded() == false then
@@ -527,7 +529,7 @@ if game.PlaceId == 998374377 then
 					end)
 				end)
 			elseif game.PlaceId == 1034328244 then
-				--workspace:WaitForChild("Base").Orientation = Vector3.new(0,180,0)
+				workspace:WaitForChild("Base"):FindFirstChildOfClass("Texture").Texture = "rbxassetid://7799656950"
 			end
 			
 			while true do
