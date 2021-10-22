@@ -3,6 +3,7 @@ wait()
 if game.PlaceId == 998374377 then
 	local UpdateLog = [[
 	- Minor optimisation (Thanks to my friend for poiting them out)
+	- Fixed first person indicator size and position
 	]]
 
 	if game:IsLoaded() == false then
@@ -329,6 +330,7 @@ if game.PlaceId == 998374377 then
 			local UI = Player.PlayerGui:WaitForChild("UI")
 			local Topbar = UI:WaitForChild("Topbar")
             local ZoomControls = UI:WaitForChild("ZoomControls")
+            local FirstPersonIndicator = ZoomControls:WaitForChild("ZoomControls")
 
 			Topbar.Position = UDim2.new(0,0,0,1)
 			Topbar.Size = UDim2.new(0,70,0,14)
@@ -353,6 +355,9 @@ if game.PlaceId == 998374377 then
                     buttons.Size = UDim2.new(0,25,0,25)
                 end
             end
+
+            FirstPersonIndicator.Size = UDim2.new(0,71,0,24)
+            FirstPersonIndicator.Position = UDim2.new(1,0,0,-25)
 
 			UI.Chat.ChatOutput.Position = UDim2.new(0,30,0,45)
 			CoreGui:WaitForChild("ThemeProvider").Enabled = false
