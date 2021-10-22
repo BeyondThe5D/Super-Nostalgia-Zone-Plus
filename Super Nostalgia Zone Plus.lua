@@ -330,7 +330,7 @@ if game.PlaceId == 998374377 then
 			local UI = Player.PlayerGui:WaitForChild("UI")
 			local Topbar = UI:WaitForChild("Topbar")
             local ZoomControls = UI:WaitForChild("ZoomControls")
-            local FirstPersonIndicator = ZoomControls:WaitForChild("ZoomControls")
+            local FirstPersonIndicator = ZoomControls:WaitForChild("FirstPersonIndicator")
 
 			Topbar.Position = UDim2.new(0,0,0,1)
 			Topbar.Size = UDim2.new(0,70,0,14)
