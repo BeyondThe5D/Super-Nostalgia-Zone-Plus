@@ -4,6 +4,7 @@ if game.PlaceId == 998374377 then
 	local UpdateLog = [[
 	- Minor optimisation (Thanks to my friend for poiting them out)
 	- Fixed first person indicator size and position
+    - Made text outline thicker on team playerlist
 	]]
 
 	if game:IsLoaded() == false then
@@ -328,9 +329,9 @@ if game.PlaceId == 998374377 then
 			end
 			
 			local UI = Player.PlayerGui:WaitForChild("UI")
+            local PlayerList = UI:WaitForChild("PlayerList")
 			local Topbar = UI:WaitForChild("Topbar")
             local ZoomControls = UI:WaitForChild("ZoomControls")
-            local FirstPersonIndicator = ZoomControls:WaitForChild("FirstPersonIndicator")
 
 			Topbar.Position = UDim2.new(0,0,0,1)
 			Topbar.Size = UDim2.new(0,70,0,14)
@@ -356,8 +357,18 @@ if game.PlaceId == 998374377 then
                 end
             end
 
-            FirstPersonIndicator.Size = UDim2.new(0,71,0,24)
-            FirstPersonIndicator.Position = UDim2.new(1,0,0,-25)
+            ZoomControls.FirstPersonIndicator.Size = UDim2.new(0,71,0,24)
+            ZoomControls.FirstPersonIndicator.Position = UDim2.new(1,0,0,-25)
+
+            for _,guis in pairs(PlayerList.Container:GetChildren()) do
+                for _,textlabels in pairs(guis:GetDescendants()) do
+                    if textlabels:IsA("TextLabel") and textlabels.TextStrokeTransparency < 1 then
+                        local Outline = Instance.new("UIStroke")
+                        Outline.Thickness = 1.25
+                        Outline.Parent = textlabels
+                    end
+                end
+            end
 
 			UI.Chat.ChatOutput.Position = UDim2.new(0,30,0,45)
 			CoreGui:WaitForChild("ThemeProvider").Enabled = false
@@ -379,7 +390,7 @@ if game.PlaceId == 998374377 then
 			    end
 			end)
 			
-			for _,Teams in pairs(UI.PlayerList.Container:GetChildren()) do
+			for _,Teams in pairs(PlayerList.Container:GetChildren()) do
                 if Teams:IsA("Frame") then
                     for _,Objects in pairs(Teams:GetChildren()) do
                         if Teams.Name == "Default" then
@@ -392,7 +403,7 @@ if game.PlaceId == 998374377 then
 		    	end
 			end
 			
-			for _,Teams in pairs(UI.PlayerList.Container:GetChildren()) do
+			for _,Teams in pairs(PlayerList.Container:GetChildren()) do
 		    	if Teams:IsA("Frame") then
 		        	Teams.ChildAdded:Connect(function(Objects)
 			            if Teams.Name == "Default" then
