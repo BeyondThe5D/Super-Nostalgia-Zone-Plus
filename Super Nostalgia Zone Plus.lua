@@ -527,7 +527,7 @@ if game.PlaceId == 998374377 then
 					end)
 				end)
 			elseif game.PlaceId == 1034328244 then
-				workspace:WaitForChild("Base").Orientation = Vector3.new(0,180,0)
+				--workspace:WaitForChild("Base").Orientation = Vector3.new(0,180,0)
 			end
 			
 			while true do
