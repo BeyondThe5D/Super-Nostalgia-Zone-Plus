@@ -16,10 +16,6 @@ Known bugs:
 - None
 
 
-Plan list:
-- Customisable settings
-
-
 Supported exploits:
 - Synapse X
 - Script-Ware
