@@ -2,7 +2,7 @@ wait()
 
 if game.PlaceId == 998374377 then
 	local UpdateLog = [[
-	- Minor optimisation (Thanks to my friend for poiting them out)
+	- Minor optimisation (Thanks to my friend for pointing them out)
 	- Fixed first person indicator size and position
 	- Made text outline thicker on team playerlist
 	- You can now stop whilst climbing
