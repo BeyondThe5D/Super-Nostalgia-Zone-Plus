@@ -2,12 +2,7 @@ wait()
 
 if game.PlaceId == 998374377 then
 	local UpdateLog = [[
-	- Minor optimisation (Thanks to my friend for pointing them out)
-	- Fixed first person indicator size and position
-	- Made text outline thicker on team playerlist
-	- You can now stop whilst climbing
-	- > Happy Home In Robloxia! update:
-	- Fixed bug where you weren't able to build
+	- Made GUI more accurate
 	]]
 
 	if game:IsLoaded() == false then
@@ -335,6 +330,7 @@ if game.PlaceId == 998374377 then
             local PlayerList = UI:WaitForChild("PlayerList")
 			local Topbar = UI:WaitForChild("Topbar")
             local ZoomControls = UI:WaitForChild("ZoomControls")
+			local Health = UI:WaitForChild("Health") -- Am going to fix later :)
 
 			Topbar.Position = UDim2.new(0,0,0,1)
 			Topbar.Size = UDim2.new(0,70,0,14)
@@ -354,6 +350,8 @@ if game.PlaceId == 998374377 then
             ZoomControls.RotateDown.Position = UDim2.new(0,0,0,25)
             ZoomControls.ZoomOut.LayoutOrder = 4
             ZoomControls.ZoomOut.Position = UDim2.new(0,25,0,25)
+			ZoomControls.Size = UDim2.new(0,50,0,50)
+			ZoomControls.Position = UDim2.new(1,0,1,0)
             for _,buttons in pairs(ZoomControls:GetChildren()) do
                 if buttons:IsA("ImageButton") then
                     buttons.Size = UDim2.new(0,25,0,25)
@@ -361,7 +359,7 @@ if game.PlaceId == 998374377 then
             end
 
             ZoomControls.FirstPersonIndicator.Size = UDim2.new(0,71,0,24)
-            ZoomControls.FirstPersonIndicator.Position = UDim2.new(1,0,0,-25)
+            ZoomControls.FirstPersonIndicator.Position = UDim2.new(1,0,0,-70)
 
             for _,guis in pairs(PlayerList.Container:GetChildren()) do
                 for _,textlabels in pairs(guis:GetDescendants()) do
@@ -372,6 +370,18 @@ if game.PlaceId == 998374377 then
                     end
                 end
             end
+
+			for _,hints in pairs(UI:GetChildren()) do
+				if hints:IsA("TextLabel") and hints.Name:find("Hint") then
+					hints.ZIndex = -1
+				end
+			end
+
+			UI.ChildAdded:Connect(function(Child)
+				if Child:IsA("TextLabel") then
+					Child.ZIndex = -1
+				end
+			end)
 
 			UI.Chat.ChatOutput.Position = UDim2.new(0,30,0,45)
 			CoreGui:WaitForChild("ThemeProvider").Enabled = false
