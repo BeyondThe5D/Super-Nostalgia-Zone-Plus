@@ -2,7 +2,9 @@ wait()
 
 if game.PlaceId == 998374377 then
 	local UpdateLog = [[
-	- Made GUI more accurate
+	- Fixed menu guis
+
+	If something else is broken, or if something that was in this script is now in the main game, please contact me on my Discord: Beyond 5D#4305
 	]]
 
 	if game:IsLoaded() == false then
@@ -123,19 +125,11 @@ if game.PlaceId == 998374377 then
 		1131938,
 		1293381,
 		1001484,
-		1364901,
-		1265611,
-		1625010,
-		1087199,
-		1254710,
-		1247510,
-		1403518,
-		1526164,
-		5238791918
+		1364901
 	}
 
 	local GameSettings = {
-		["AllowMusic"] = true,
+		["AllowMusic"] = false,
 		["CharacterBevels"] = false,
 		["ClassicSky"] = true,
 		["ClickToMove"] = true,
@@ -216,16 +210,16 @@ if game.PlaceId == 998374377 then
 		Button.Font = Enum.Font.Cartoon
 		Button.TextColor3 = Color3.fromRGB(255,255,255)
 		Button.TextScaled = true
-		Button.Parent = Windows
+		Button.Parent = WindowBase
 		return Button
 	end
 
-	local PlayRandomGame = CreateGameButton("Play Random Game",0)
+	local PlayRandomGame = CreateGameButton("Play Random Game",0.050000000745058)
 	PlayRandomGame.MouseButton1Click:Connect(function()
 		TeleportService:Teleport(Games[math.random(1,#Games)],Player)
 	end)
 
-	local ListingOrder = CreateGameButton("Sort Order: Most players",0.052)
+	local ListingOrder = CreateGameButton("Sort Order: Most players",0.10000000149)
 	ListingOrder.MouseButton1Click:Connect(function()
 		if ListingOrder.Text == "Sort Order: Most players" then
 			ListingOrder.Text = "Sort Order: Name"
@@ -236,9 +230,20 @@ if game.PlaceId == 998374377 then
 		end
 	end)
 
-	GamesWindow.Changed:Connect(function()
-		PlayRandomGame.Visible = GamesWindow.Visible
-		ListingOrder.Visible = GamesWindow.Visible
+	local function MoreGameOptionsVisible()
+		if Windows.PageControl.CurrentPage == GamesWindow then
+			PlayRandomGame.Visible = true
+			ListingOrder.Visible = true
+		else
+			PlayRandomGame.Visible = false
+			ListingOrder.Visible = false
+		end
+	end
+
+	MoreGameOptionsVisible()
+
+	Windows.PageControl.Changed:Connect(function()
+		MoreGameOptionsVisible()
 	end)
 
 	local Text
