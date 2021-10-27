@@ -21,13 +21,16 @@ if game.PlaceId == 998374377 then
 	local Player = Players.LocalPlayer
 
 	local MenuGui = Player.PlayerGui:WaitForChild("MenuGui")
-	local WindowBase = MenuGui.CoreFrame:WaitForChild("WindowBase")
+	local CoreFrame = MenuGui:WaitForChild("CoreFrame")
+	local WindowBase = CoreFrame:WaitForChild("WindowBase")
 	local Windows = WindowBase:WaitForChild("Windows")
 	local PageControl = Windows:WaitForChild("PageControl")
 	local SettingsWindow = Windows:WaitForChild("Settings")
-	local SettingsTab = WindowBase.Tabs:WaitForChild("Settings")
+	local Tabs = WindowBase:WaitForChild("Tabs")
+	local SettingsTab = Tabs:WaitForChild("Settings")
 	local GamesWindow = Windows:WaitForChild("Games")
-	local TShirtCatalog = Windows.Avatar.TShirtCatalog
+	local Avatar = Windows:WaitForChild("Avatar")
+	local TShirtCatalog = Avatar:WaitForChild("TShirtCatalog")
 
 	local function Universal_Queue_On_Teleport(Script)
 		if syn then
