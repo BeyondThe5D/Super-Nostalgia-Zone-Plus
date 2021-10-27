@@ -23,6 +23,7 @@ if game.PlaceId == 998374377 then
 	local MenuGui = Player.PlayerGui:WaitForChild("MenuGui")
 	local WindowBase = MenuGui.CoreFrame:WaitForChild("WindowBase")
 	local Windows = WindowBase:WaitForChild("Windows")
+	local PageControl = Windows:WaitForChild("PageControl")
 	local SettingsWindow = Windows:WaitForChild("Settings")
 	local SettingsTab = WindowBase.Tabs:WaitForChild("Settings")
 	local GamesWindow = Windows:WaitForChild("Games")
@@ -231,7 +232,7 @@ if game.PlaceId == 998374377 then
 	end)
 
 	local function MoreGameOptionsVisible()
-		if Windows.PageControl.CurrentPage == GamesWindow then
+		if PageControl.CurrentPage == GamesWindow then
 			PlayRandomGame.Visible = true
 			ListingOrder.Visible = true
 		else
@@ -242,7 +243,7 @@ if game.PlaceId == 998374377 then
 
 	MoreGameOptionsVisible()
 
-	Windows.PageControl.Changed:Connect(function()
+	PageControl.Changed:Connect(function()
 		MoreGameOptionsVisible()
 	end)
 
