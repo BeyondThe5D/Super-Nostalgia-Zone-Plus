@@ -2,9 +2,8 @@ wait()
 
 if game.PlaceId == 998374377 then
 	local UpdateLog = [[
-	- Fixed menu guis
-
-	If something else is broken, or if something that was in this script is now in the main game, please contact me on my Discord: Beyond 5D#4305
+	- Optimised FPS lock for Script-Ware
+    - Optimised lighting changes
 	]]
 
 	if game:IsLoaded() == false then
@@ -583,12 +582,17 @@ if game.PlaceId == 998374377 then
 				workspace:WaitForChild("Base"):WaitForChild("TopSurface").Texture = "rbxassetid://7799656950"
 			end
 			
-			while true do
-				settings().Rendering.EnableFRM = false
-				local _tick = tick()
-				RunService.RenderStepped:Wait()
-				repeat until (_tick+1/30) <= tick()
-			end
+            settings().Rendering.EnableFRM = false
+
+            if getexecutorname():find("ScriptWare") then
+                setfpscap(30)
+            else
+                while true do
+                    local _tick = tick()
+                    RunService.RenderStepped:Wait()
+                    repeat until (_tick+1/30) <= tick()
+                end
+            end
 			]])
 		end
 	end)
