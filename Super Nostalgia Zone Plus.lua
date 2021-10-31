@@ -151,6 +151,12 @@ if game.PlaceId == 998374377 then
 		Duration = 10
 	})
 
+	if getexecutorname():find("ScriptWare") then
+		if getfpscap() == 30 then
+			setfpscap(60)
+		end
+	end
+
 	for GameSetting,Bool in pairs(GameSettings) do
 		ReplicatedStorage.DataGateway:InvokeServer("SetData","Settings",GameSetting,Bool)
 	end
