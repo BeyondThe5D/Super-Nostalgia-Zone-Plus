@@ -5,7 +5,7 @@ if game.PlaceId == 998374377 then
 	- Optimised FPS lock for Script-Ware
 	- Optimised lighting changes
 	- > Thrillville Patch
-	  - Fixed t-shirts appearing incorrect
+	  - Fixed T-Shirts appearing incorrect
 	]]
 
 	if game:IsLoaded() == false then
