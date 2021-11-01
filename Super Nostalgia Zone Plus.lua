@@ -5,7 +5,7 @@ if game.PlaceId == 998374377 then
 	- Optimised FPS lock for Script-Ware
 	- Optimised lighting changes
 	- > Thrillville Patch
-	  - Fixed the Bar Tenders T-Shirt
+	  - Fixed t-shirts appearing incorrect
 	]]
 
 	if game:IsLoaded() == false then
@@ -589,9 +589,13 @@ if game.PlaceId == 998374377 then
 			elseif game.PlaceId == 1034328244 then
 				workspace:WaitForChild("Base"):WaitForChild("TopSurface").Texture = "rbxassetid://7799656950"
 			elseif game.PlaceId == 1050608101 then
-				local TShirtFix = Instance.new("ShirtGraphic")
-				TShirtFix.Graphic = "rbxassetid://1221846"
-				TShirtFix.Parent = workspace:WaitForChild("Hotel"):WaitForChild("(bartender) wazzzz up!!.....ya' want something to drink?")
+				for _,tshirts in pairs(workspace:GetDescendants()) do
+				    if tshirts:IsA("Decal") and tshirts.Texture == "http://www.roblox.com/asset/?id=1221846" then
+					local TShirtFix = Instance.new("ShirtGraphic")
+					TShirtFix.Graphic = "rbxassetid://1221846"
+					TShirtFix.Parent = tshirts.Parent.Parent
+				    end
+				end
 			end
 			
             settings().Rendering.EnableFRM = false
