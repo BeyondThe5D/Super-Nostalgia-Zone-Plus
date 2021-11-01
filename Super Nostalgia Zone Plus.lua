@@ -3,7 +3,7 @@ wait()
 if game.PlaceId == 998374377 then
 	local UpdateLog = [[
 	- Optimised FPS lock for Script-Ware
-   	- Optimised lighting changes
+	- Optimised lighting changes
 	]]
 
 	if game:IsLoaded() == false then
