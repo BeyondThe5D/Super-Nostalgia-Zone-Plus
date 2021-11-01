@@ -151,7 +151,7 @@ if game.PlaceId == 998374377 then
 		Duration = 10
 	})
 
-	if getexecutorname():find("ScriptWare") then
+	if not syn and not identifyexecutor():find("Krnl") and getexecutorname():find("ScriptWare") then
 		if getfpscap() == 30 then
 			setfpscap(60)
 		end
@@ -590,7 +590,7 @@ if game.PlaceId == 998374377 then
 			
             settings().Rendering.EnableFRM = false
 
-            if getexecutorname():find("ScriptWare") then
+            if not syn and not identifyexecutor():find("Krnl") and getexecutorname():find("ScriptWare") then
                 setfpscap(30)
             else
                 while true do
