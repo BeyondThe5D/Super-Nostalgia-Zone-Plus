@@ -1,11 +1,8 @@
-wait()
+wait(0.5)
 
 if game.PlaceId == 998374377 then
 	local UpdateLog = [[
-	- Optimised FPS lock for Script-Ware
-	- Optimised lighting changes
-	- > Thrillville Patch
-	  - Fixed T-Shirts appearing incorrect
+	- Added slight delay in loading (To hopefully fix Script-Ware's auto-execution system)
 	]]
 
 	if game:IsLoaded() == false then
