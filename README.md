@@ -13,7 +13,7 @@ This script is not a malicious script and is actually the complete opposite, it 
 
 
 Known bugs:
-- None
+- Menu runs at 30 FPS with Script-Ware
 
 
 Supported exploits:
